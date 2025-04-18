@@ -4,5 +4,9 @@
     "source.fixAll.pylance": true
   },
   "fortran.formatting.formatter": "fprettify",
+  "fortran.formatting.fprettifyArgs": [
+    "--config-file",
+    ".fprettify.rc",
+  ],
   "fortran.formatting.path": "/home/vscode/.local/bin/fprettify"
 }

@@ -6,12 +6,12 @@
 !
 
 ! 必ずprogramでくくる必要がある
-PROGRAM ExampleProgram
-   IMPLICIT none
+program ExampleProgram
+   implicit none
 
-   WRITE (*, *) 'コンパイルと実行に成功しました！！！'
-   WRITE (*, *) 'Press Enter to continue...'
-   READ (*, *)
+   write (*, *) 'コンパイルと実行に成功しました！！！'
+   write (*, *) 'Press Enter to continue...'
+   read (*, *)
 
-   STOP
-END PROGRAM ExampleProgram
+   stop
+end program ExampleProgram

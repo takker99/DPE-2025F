@@ -11,68 +11,68 @@ program main
 !
 !!! Fortranでは，コメントアウト以外で全角は使用禁止です！スペースも，改行も半角で入力すること！
 !
-   IMPLICIT none
-   INTEGER(4), parameter :: NX = 100
+   implicit none
+   integer(4), parameter :: NX = 100
    integer(4) :: IMAX !integerは整数
-   INTEGER(8) :: F(NX), CCC(NX) !integerは整数
+   integer(8) :: F(NX), CCC(NX) !integerは整数
 
-   CALL INIT !CALLはsubroutineの呼び出しを行うものです
-   CALL CALCULATION
-   CALL FILEOUT
+   call INIT !CALLはsubroutineの呼び出しを行うものです
+   call CALCULATION
+   call FILEOUT
 
 contains
 
 !***********************************
-   SUBROUTINE INIT
+   subroutine INIT
 !***********************************
       integer(4) :: I
-      WRITE (*, *) 'SUBROUTINE INIT START ----------'
+      write (*, *) 'SUBROUTINE INIT START ----------'
 
-      OPEN (11, FILE='Input_02_Integer.txt') !入力ファイルを「11」という番号で開く
+      open (11, FILE='Input_02_Integer.txt') !入力ファイルを「11」という番号で開く
 
-      READ (11, *) IMAX !入力データ長を読み込む
-      DO I = 1, IMAX
-         READ (11, *) F(I) !READを入力データの数だけ繰り返し行う
-         WRITE (*, *) I, F(I) !READしたデータをコマンドプロンプトに表示する（確認のため）
-      END DO
+      read (11, *) IMAX !入力データ長を読み込む
+      do I = 1, IMAX
+         read (11, *) F(I) !READを入力データの数だけ繰り返し行う
+         write (*, *) I, F(I) !READしたデータをコマンドプロンプトに表示する（確認のため）
+      end do
 
-      WRITE (*, *) 'SUBROUTINE INIT FINISHED ----------'
+      write (*, *) 'SUBROUTINE INIT FINISHED ----------'
 
-      RETURN
-   END
+      return
+   end
 !
 !***********************************
-   SUBROUTINE CALCULATION
+   subroutine CALCULATION
 !***********************************
       integer(4) :: I
       integer(8) :: J
-      WRITE (*, *) 'SUBROUTINE CALCULATION START ----------'
+      write (*, *) 'SUBROUTINE CALCULATION START ----------'
 
       !CALCULATION 2 CCCは何を求めているでしょうか？
 
-      DO I = 1, IMAX
+      do I = 1, IMAX
          CCC(I) = 1
-         DO J = 1, F(I)
+         do J = 1, F(I)
             CCC(I) = CCC(I)*J
-         END DO
-         WRITE (*, *) I, CCC(I)
-      END DO
+         end do
+         write (*, *) I, CCC(I)
+      end do
 
-      WRITE (*, *) 'SUBROUTINE CALCULATION FINISHED ----------'
+      write (*, *) 'SUBROUTINE CALCULATION FINISHED ----------'
 
-      RETURN
-   END
+      return
+   end
 !
 !***********************************
-   SUBROUTINE FILEOUT
+   subroutine FILEOUT
 !***********************************
       integer(4) :: I
-      OPEN (99, FILE='dist/output_02.txt')
+      open (99, FILE='dist/output_02.txt')
 
-      DO I = 1, IMAX
-         WRITE (99, '(I5,2I20)') I, F(I), CCC(I)
-      END DO
+      do I = 1, IMAX
+         write (99, '(I5,2I20)') I, F(I), CCC(I)
+      end do
 
-      RETURN
-   END
-END program main
+      return
+   end
+end program main

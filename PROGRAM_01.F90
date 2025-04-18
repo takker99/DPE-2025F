@@ -11,20 +11,20 @@
 !!! Fortranでは，コメントアウト以外で全角は使用禁止です！スペースも，改行も半角で入力すること！
 !
 program main
-   IMPLICIT none
+   implicit none
    real(8) :: A, B !realは実数
 
-   WRITE (*, *) 'Aの値を入力してください'
-   READ (*, *) A
-   WRITE (*, *) 'Bの値を入力してください'
-   READ (*, *) B
+   write (*, *) 'Aの値を入力してください'
+   read (*, *) A
+   write (*, *) 'Bの値を入力してください'
+   read (*, *) B
 
-   WRITE (*, *) 'A+B=', A + B
-   WRITE (*, *) 'A-B=', A - B
-   WRITE (*, *) 'A*B=', A*B
-   WRITE (*, *) 'A/B=', A/B
+   write (*, *) 'A+B=', A + B
+   write (*, *) 'A-B=', A - B
+   write (*, *) 'A*B=', A*B
+   write (*, *) 'A/B=', A/B
 
-   WRITE (*, *) 'enter to finish'
-   READ (*, *)
-   STOP
-END program main
+   write (*, *) 'enter to finish'
+   read (*, *)
+   stop
+end program main

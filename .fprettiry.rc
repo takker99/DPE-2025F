@@ -1,0 +1,4 @@
+strict-indent
+enable-replacements
+enable-decl
+case=[1,1,1,1]
