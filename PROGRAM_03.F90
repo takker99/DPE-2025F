@@ -13,8 +13,8 @@ program main
 !
    IMPLICIT none
    INTEGER(4), parameter :: NX = 100
-   integer(4) :: I, IMAX !integerは整数
-   INTEGER(8) :: J, F(NX), CCC(NX) !integerは整数
+   integer(4) :: IMAX !integerは整数
+   INTEGER(8) :: F(NX), CCC(NX) !integerは整数
 
    CALL INIT !CALLはsubroutineの呼び出しを行うものです
    CALL CALCULATION
@@ -25,9 +25,10 @@ contains
 !***********************************
    SUBROUTINE INIT
 !***********************************
+      integer(4) :: I
       WRITE (*, *) 'SUBROUTINE INIT START ----------'
 
-      OPEN (11, FILE='INPUT_02_INTEGER.TXT') !入力ファイルを「11」という番号で開く
+      OPEN (11, FILE='Input_02_Integer.txt') !入力ファイルを「11」という番号で開く
 
       READ (11, *) IMAX !入力データ長を読み込む
       DO I = 1, IMAX
@@ -43,6 +44,8 @@ contains
 !***********************************
    SUBROUTINE CALCULATION
 !***********************************
+      integer(4) :: I
+      integer(8) :: J
       WRITE (*, *) 'SUBROUTINE CALCULATION START ----------'
 
       !CALCULATION 2 CCCは何を求めているでしょうか？
@@ -63,7 +66,8 @@ contains
 !***********************************
    SUBROUTINE FILEOUT
 !***********************************
-      OPEN (99, FILE='OUTPUT_02.TXT')
+      integer(4) :: I
+      OPEN (99, FILE='dist/output_02.txt')
 
       DO I = 1, IMAX
          WRITE (99, '(I5,2I20)') I, F(I), CCC(I)
