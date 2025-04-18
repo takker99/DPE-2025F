@@ -1,0 +1,19 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/python": {
+            "installJupyterlab": true
+        }
+    },
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y gfortran gdb && pip install fortls fprettify",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "fortran-lang.linter-gfortran"
+            ]
+        }
+    }
+}

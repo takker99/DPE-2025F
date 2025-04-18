@@ -1,0 +1,8 @@
+{
+  "notebook.formatOnSave.enabled": true,
+  "notebook.codeActionsOnSave": {
+    "source.fixAll.pylance": true
+  },
+  "fortran.formatting.formatter": "fprettify",
+  "fortran.formatting.path": "/home/vscode/.local/bin/fprettify"
+}

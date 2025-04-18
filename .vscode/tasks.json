@@ -1,0 +1,19 @@
+// https://zenn.dev/plusultra00/articles/f91d966cdb512f#tasks.json%E3%82%92%E8%A8%98%E8%BF%B0%E3%81%99%E3%82%8B
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build fortran",
+      "type": "shell",
+      "command": "gfortran",
+      "args": [
+        "-g",
+        "${fileBasename}",
+        "-o",
+        "dist/${fileBasenameNoExtension}"
+      ]
+    }
+  ]
+}
