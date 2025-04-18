@@ -1,4 +1,5 @@
 strict-indent
 enable-replacements
 enable-decl
+c-relations
 case=[1,1,1,1]

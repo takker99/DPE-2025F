@@ -32,7 +32,7 @@ program advection1D_F
 
    do N = 1, NMAX !---計算時間ステップに関するループ------------ここから
       call CAL_ADVECTION
-      if (mod(N, 20) .eq. 0) then !mod関数は余りを算出する関数
+      if (mod(N, 20) == 0) then !mod関数は余りを算出する関数
          call FILEOUT_SPATIAL
       end if
    end do !---計算時間ステップに関するループ------------------ここまで

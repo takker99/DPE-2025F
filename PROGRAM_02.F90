@@ -33,20 +33,20 @@ contains
       write (*, *) 'SUBROUTINE INIT START ----------'
 
       open (11, FILE='Input_01_Float.txt', STATUS='OLD', ACTION='READ', IOSTAT=IOS)
-      if (IOS .ne. 0) then
+      if (IOS /= 0) then
          write (*, *) 'Error: Unable to open file Input_01_Float.txt'
          stop
       end if
 
       read (11, *, IOSTAT=IOS) IMAX
-      if (IOS .ne. 0) then
+      if (IOS /= 0) then
          write (*, *) 'Error: Failed to read IMAX from file'
          stop
       end if
 
       do I = 1, IMAX
          read (11, *, IOSTAT=IOS) F(I)
-         if (IOS .ne. 0) then
+         if (IOS /= 0) then
             write (*, *) 'Error: Not enough data in file for F(', I, ')'
             stop
          end if
