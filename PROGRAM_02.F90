@@ -13,9 +13,9 @@ program main
 !
 !!! Fortranでは，コメントアウト以外で全角は使用禁止です！スペースも，改行も半角で入力すること！
 !
-   integer(4), parameter :: NX = 100
-   integer(4) :: I, IMAX, IOS !integerは整数
+   integer(4) :: IMAX !integerは整数
    real(8) :: AAA, BBB !realは実数
+   integer(4), parameter :: NX = 100
    real(8) :: F(NX) !realは実数
 
    call INIT !CALLはsubroutineの呼び出しを行うものです
@@ -29,6 +29,7 @@ contains
 !***********************************
    subroutine INIT
 !***********************************
+      integer(4) :: IOS
 
       write (*, *) 'SUBROUTINE INIT START ----------'
 
@@ -44,14 +45,17 @@ contains
          stop
       end if
 
-      do I = 1, IMAX
-         read (11, *, IOSTAT=IOS) F(I)
-         if (IOS /= 0) then
-            write (*, *) 'Error: Not enough data in file for F(', I, ')'
-            stop
-         end if
-         write (*, *) I, F(I)
-      end do
+      block
+         integer(4) :: I
+         do I = 1, IMAX
+            read (11, *, IOSTAT=IOS) F(I)
+            if (IOS /= 0) then
+               write (*, *) 'Error: Not enough data in file for F(', I, ')'
+               stop
+            end if
+            write (*, *) I, F(I)
+         end do
+      end block
 
       write (*, *) 'SUBROUTINE INIT FINISHED ----------'
 
@@ -67,10 +71,13 @@ contains
 
       !CALCULATION 1 AAAとBBBはそれぞれ何を求めているでしょうか？
 
-      do I = 1, IMAX
-         AAA = AAA + F(I)
-         write (*, *) I, F(I), AAA
-      end do
+      block
+         integer(4) :: I
+         do I = 1, IMAX
+            AAA = AAA + F(I)
+            write (*, *) I, F(I), AAA
+         end do
+      end block
       BBB = AAA/IMAX
       write (*, *) BBB
 
